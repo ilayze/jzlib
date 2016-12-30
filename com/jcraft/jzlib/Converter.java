@@ -74,12 +74,16 @@ public class Converter {
         CHECK_ERR(d_stream, err, "inflateEnd");
 
         try {
-            return readFile("my_output_file.txt",StandardCharsets.US_ASCII);
+            return processSnortHex(input,readFile("my_output_file.txt",StandardCharsets.US_ASCII));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return "";
+    }
+
+    public static String processSnortHex(String input,String gzipAscii){
+        return gzipAscii;
     }
 
     static void CHECK_ERR(ZStream z, int err, String msg) {
